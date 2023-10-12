@@ -1,0 +1,89 @@
+Select statement:
+
+Query: SELECT * from albums.
+
+Select a Column:
+
+Query: SELECT AlbumId from albums.
+
+Order by Clause:
+
+Query: select * from employees order by Firstname desc;
+
+Distinct:
+
+Query: select distinct country from customers;
+
+Where condition:
+
+Query: SELECT Country FROM customers
+       where Country ='Canada';
+
+Operators:
+
+like operator: 
+
+Query: SELECT * FROM employees
+       where LastName like'A%';
+
+Limit Clause:
+
+Query: SELECT City,Country,LastName FROM employees
+       ORDER BY FirstName desc
+       LIMIT 10;
+
+Between operator:
+
+Query:SELECT InvoiceId,TrackId,Quantity FROM invoice_items
+      WHERE TrackId BETWEEN '400' AND '700'
+      ORDER BY TrackId desc;  
+
+In operator:
+
+Query:SELECT TrackId,InvoiceLineId FROM invoice_items
+      WHERE TrackId In(10,20,40,50)
+      ORDER BY TrackId desc;
+
+Null operator:
+
+Query: SELECT FirstName,Title FROM employees
+       WHERE ReportsTo IS  NULL;
+
+GLOB operator:
+
+Query: SELECT LastName FROM customers
+       WHERE city GLOB '?e*';
+
+Group By Clause:
+
+Count():
+Query: SELECT InvoiceLineId,COUNT(InvoiceId) FROM invoice_items
+       GROUP BY InvoiceId;
+
+HAVING():
+Query: SELECT InvoiceLineId,COUNT(InvoiceId) FROM invoice_items
+       GROUP BY InvoiceId 
+       HAVING COUNT(InvoiceId)>1;
+
+
+SubQuery:
+
+Query: SELECT Customerid,Firstname,LastnameFROM customers
+       WHERE supportrepid IN (SELECT employeeid FROM employees
+                              WHERE country = 'Canada'
+                             );
+
+Insert:
+
+Query: INSERT INTO employees (LastName,FirstName)
+       VALUES('Raja','Rani');
+
+Update:
+
+Query: UPDATE employees SET FirstName ='samara'
+       WHERE FirstName='Andrew';
+
+Delete:
+
+Query: DELETE FROM customers
+       WHERE LastName LIKE '%Kohler%';
